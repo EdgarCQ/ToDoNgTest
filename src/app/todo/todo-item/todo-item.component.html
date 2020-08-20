@@ -1,0 +1,20 @@
+<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
+<div ng-show="location === '#/'">
+  <li  *ngIf="!task.complete">
+  <div class="view" [hidden]= "task.complete" >
+    <input class="toggle" type="checkbox"  (change)= "change(task)">
+    <label  >{{task.nombre}}</label>
+    <button class="destroy" (click) = "deleteTask(task)"></button>
+  </div>
+  <input class="edit" value="Salvar el mundo">
+</li>
+
+<li  class="completed" *ngIf="task.complete" >
+  <div class="view" [hidden]= "!task.complete">
+    <input class="toggle" type="checkbox" checked (change)= "change(task)">
+    <label  >{{task.nombre}}</label>
+    <button class="destroy" (click) = "deleteTask(task)"></button>
+  </div>
+  <input class="edit" value="Salvar el mundo">
+</li>
+</div>
